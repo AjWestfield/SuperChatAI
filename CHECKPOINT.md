@@ -2,7 +2,10 @@
 
 **Date:** May 6, 2025 4:00PM PST  
 **GitHub Repository:** <https://github.com/AjWestfield/SuperChatAI>  
-**Tag:** working-version-1.0
+**Tags:**
+
+- `working-version-1.0` - Initial working version
+- `working-version-1.0.1` - Component and artifact functionality improvements
 
 This document serves as a comprehensive snapshot of the SuperChatAI project's current state, outlining implemented features, configuration, and development progress.
 
@@ -90,6 +93,12 @@ The project requires the following environment variables:
 3. ✅ Database schema creation
 4. ✅ AI provider configuration with xAI
 5. ✅ Authentication system setup
+6. ✅ Component and artifact functionality improvements (working-version-1.0.1)
+   - Enhanced document handling components
+   - Improved artifact creation and editing
+   - Optimized code editor functionality
+   - Updated suggestion system
+   - UI/UX refinements for better interaction
 
 ## Current Limitations and Future Improvements
 
@@ -119,7 +128,9 @@ The project requires the following environment variables:
 To revert to this checkpoint:
 
 1. Clone the repository: `git clone https://github.com/AjWestfield/SuperChatAI.git`
-2. Checkout the tag: `git checkout tags/working-version-1.0`
+2. Checkout the desired tag:
+   - For initial version: `git checkout tags/working-version-1.0`
+   - For version with component improvements: `git checkout tags/working-version-1.0.1` (recommended)
 3. Install dependencies: `pnpm install`
 4. Set up environment variables in `.env.local`
 5. Start the database: `docker-compose up -d`
@@ -127,4 +138,4 @@ To revert to this checkpoint:
 
 ---
 
-*This checkpoint document was automatically generated to capture the current state of the SuperChatAI project on May 6, 2025 at 4:00PM PST.*
+*This checkpoint document was automatically generated to capture the current state of the SuperChatAI project on May 6, 2025 at 4:00PM PST and updated with component improvements at 4:15PM PST.*

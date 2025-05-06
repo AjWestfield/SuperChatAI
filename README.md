@@ -1,62 +1,164 @@
-<a href="https://chat.vercel.ai/">
-  <img alt="Next.js 14 and App Router-ready AI chatbot." src="app/(chat)/opengraph-image.png">
-  <h1 align="center">Chat SDK</h1>
+<a href="https://github.com/AjWestfield/SuperChatAI">
+  <img alt="Next.js 15 and App Router-ready AI chatbot." src="app/(chat)/opengraph-image.png">
+  <h1 align="center">SuperChatAI</h1>
 </a>
 
 <p align="center">
-    Chat SDK is a free, open-source template built with Next.js and the AI SDK that helps you quickly build powerful chatbot applications.
+    SuperChatAI is a powerful, open-source AI chatbot built with Next.js 15 and the AI SDK, offering advanced chat capabilities, document management, and multimodal interactions.
 </p>
 
 <p align="center">
-  <a href="https://chat-sdk.dev"><strong>Read Docs</strong></a> ·
   <a href="#features"><strong>Features</strong></a> ·
   <a href="#model-providers"><strong>Model Providers</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#running-locally"><strong>Running locally</strong></a>
+  <a href="#running-locally"><strong>Running Locally</strong></a> ·
+  <a href="#development-status"><strong>Development Status</strong></a> ·
+  <a href="#project-structure"><strong>Project Structure</strong></a>
 </p>
 <br/>
 
 ## Features
 
-- [Next.js](https://nextjs.org) App Router
-  - Advanced routing for seamless navigation and performance
-  - React Server Components (RSCs) and Server Actions for server-side rendering and increased performance
-- [AI SDK](https://sdk.vercel.ai/docs)
-  - Unified API for generating text, structured objects, and tool calls with LLMs
-  - Hooks for building dynamic chat and generative user interfaces
-  - Supports xAI (default), OpenAI, Fireworks, and other model providers
-- [shadcn/ui](https://ui.shadcn.com)
-  - Styling with [Tailwind CSS](https://tailwindcss.com)
-  - Component primitives from [Radix UI](https://radix-ui.com) for accessibility and flexibility
-- Data Persistence
-  - [Neon Serverless Postgres](https://vercel.com/marketplace/neon) for saving chat history and user data
-  - [Vercel Blob](https://vercel.com/storage/blob) for efficient file storage
-- [Auth.js](https://authjs.dev)
-  - Simple and secure authentication
+- **Modern React Architecture**
+  - [Next.js 15](https://nextjs.org) with App Router for optimized performance
+  - React Server Components (RSCs) and Server Actions
+  - Turbopack for faster development builds
+  
+- **State-of-the-Art AI Integration**
+  - [AI SDK](https://sdk.vercel.ai/docs) for unified API interaction with LLMs
+  - Streaming responses with real-time UI updates
+  - Advanced reasoning capabilities
+  - Multimodal content support (text, images, files)
+  
+- **Elegant User Interface**
+  - [shadcn/ui](https://ui.shadcn.com) components for a polished look and feel
+  - Responsive design using [Tailwind CSS](https://tailwindcss.com)
+  - Dark/light theme support
+  - Accessible component primitives from [Radix UI](https://radix-ui.com)
+  
+- **Robust Data Management**
+  - PostgreSQL database with Drizzle ORM
+  - Docker Compose for easy local database setup
+  - Message, chat, and document persistence
+  - Type-safe database queries and schema
+  
+- **Security & Authentication**
+  - [Auth.js](https://authjs.dev) for secure authentication
+  - User registration and login
+  - Guest access support
+  - Session management
+
+- **Document Handling**
+  - Create and edit multiple document types
+  - Code editor with syntax highlighting
+  - Spreadsheet support
+  - Image uploads and management
+  - Suggestions system for document improvements
 
 ## Model Providers
 
-This template ships with [xAI](https://x.ai) `grok-2-1212` as the default chat model. However, with the [AI SDK](https://sdk.vercel.ai/docs), you can switch LLM providers to [OpenAI](https://openai.com), [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), and [many more](https://sdk.vercel.ai/providers/ai-sdk-providers) with just a few lines of code.
+SuperChatAI currently uses [xAI](https://x.ai) models by default:
 
-## Deploy Your Own
+- `grok-2-vision-1212` for multimodal chat
+- `grok-3-mini-beta` for reasoning capabilities
+- `grok-2-1212` for document and artifact handling
 
-You can deploy your own version of the Next.js AI Chatbot to Vercel with one click:
+You can easily switch to other providers such as [OpenAI](https://openai.com), [Anthropic](https://anthropic.com), [Cohere](https://cohere.com/), and [more](https://sdk.vercel.ai/providers/ai-sdk-providers) by modifying the provider configuration in `lib/ai/providers.ts`.
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fvercel%2Fai-chatbot&env=AUTH_SECRET&envDescription=Generate%20a%20random%20secret%20to%20use%20for%20authentication&envLink=https%3A%2F%2Fgenerate-secret.vercel.app%2F32&project-name=my-awesome-chatbot&repository-name=my-awesome-chatbot&demo-title=AI%20Chatbot&demo-description=An%20Open-Source%20AI%20Chatbot%20Template%20Built%20With%20Next.js%20and%20the%20AI%20SDK%20by%20Vercel&demo-url=https%3A%2F%2Fchat.vercel.ai&products=%5B%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22ai%22%2C%22productSlug%22%3A%22grok%22%2C%22integrationSlug%22%3A%22xai%22%7D%2C%7B%22type%22%3A%22integration%22%2C%22protocol%22%3A%22storage%22%2C%22productSlug%22%3A%22neon%22%2C%22integrationSlug%22%3A%22neon%22%7D%2C%7B%22type%22%3A%22blob%22%7D%5D)
+## Running Locally
 
-## Running locally
+### Prerequisites
 
-You will need to use the environment variables [defined in `.env.example`](.env.example) to run Next.js AI Chatbot. It's recommended you use [Vercel Environment Variables](https://vercel.com/docs/projects/environment-variables) for this, but a `.env` file is all that is necessary.
+- [Node.js](https://nodejs.org/) (v18 or newer)
+- [pnpm](https://pnpm.io/) package manager
+- [Docker](https://www.docker.com/) for PostgreSQL database
 
-> Note: You should not commit your `.env` file or it will expose secrets that will allow others to control access to your various AI and authentication provider accounts.
+### Environment Setup
 
-1. Install Vercel CLI: `npm i -g vercel`
-2. Link local instance with Vercel and GitHub accounts (creates `.vercel` directory): `vercel link`
-3. Download your environment variables: `vercel env pull`
+1. Clone the repository:
 
-```bash
-pnpm install
-pnpm dev
+   ```bash
+   git clone https://github.com/AjWestfield/SuperChatAI.git
+   cd SuperChatAI
+   ```
+
+2. Create a `.env.local` file with the following variables:
+
+   ```
+   # Authentication
+   AUTH_SECRET=<your-generated-auth-secret>
+   
+   # AI Provider
+   XAI_API_KEY=<your-xai-api-key>
+   
+   # Database (PostgreSQL)
+   POSTGRES_URL=postgres://postgres:postgres@localhost:5432/ai_chatbot
+   
+   # Vercel Blob (file storage)
+   BLOB_READ_WRITE_TOKEN=<your-blob-token>
+   ```
+
+3. Start the PostgreSQL database:
+
+   ```bash
+   docker-compose up -d
+   ```
+
+4. Install dependencies:
+
+   ```bash
+   pnpm install
+   ```
+
+5. Run the development server:
+
+   ```bash
+   pnpm dev
+   ```
+
+6. Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
+
+## Development Status
+
+**Current Version:** 1.0 (Tagged as `working-version-1.0`)
+
+The project is currently in a functional state with all core features implemented:
+
+- ✅ Authentication system
+- ✅ Chat interface with AI responses
+- ✅ Document creation and management
+- ✅ PostgreSQL database integration
+- ✅ Docker configuration for local development
+
+For a comprehensive overview of the current state, see [CHECKPOINT.md](./CHECKPOINT.md).
+
+## Project Structure
+
+```
+SuperChatAI/
+├── app/                  # Next.js App Router structure
+│   ├── (auth)/           # Authentication routes
+│   └── (chat)/           # Chat interface routes
+├── components/           # React components
+│   └── ui/               # UI components from shadcn/ui
+├── lib/                  # Core library code
+│   ├── ai/               # AI provider integration
+│   ├── db/               # Database schema and queries
+│   └── artifacts/        # Document artifact handling
+├── public/               # Static assets
+├── sql/                  # SQL scripts for database setup
+├── docker-compose.yml    # Docker configuration
+├── .env.local            # Environment variables (not committed)
+└── CHECKPOINT.md         # Project checkpoint document
 ```
 
-Your app template should now be running on [localhost:3000](http://localhost:3000).
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## License
+
+This project is licensed under the [MIT License](LICENSE).
+
+---
+
+*Last updated: May 6, 2025*

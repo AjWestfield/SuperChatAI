@@ -119,7 +119,7 @@ You can easily switch to other providers such as [OpenAI](https://openai.com), [
 
 ## Development Status
 
-**Current Version:** 1.0 (Tagged as `working-version-1.0`)
+**Current Version:** 1.0.1 (Tagged as `working-version-1.0.1`)
 
 The project is currently in a functional state with all core features implemented:
 
@@ -128,6 +128,9 @@ The project is currently in a functional state with all core features implemente
 - ✅ Document creation and management
 - ✅ PostgreSQL database integration
 - ✅ Docker configuration for local development
+- ✅ Enhanced component and artifact functionality
+
+The latest update (v1.0.1) includes improvements to document handling components, artifact creation/editing, code editor functionality, and UI/UX refinements.
 
 For a comprehensive overview of the current state, see [CHECKPOINT.md](./CHECKPOINT.md).
 
